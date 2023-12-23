@@ -1,0 +1,520 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/bs/bootstrap.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'core/images/netflix.png' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Netflix</title>
+
+</head>
+<body>
+
+
+<main class="">
+  <div class="section mb-0 image">
+    <div class=" container ">
+
+      <div class="mx-5">
+        <nav class="navbar navbar-expand-lg navbar-light" id="nav-bar">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'core:index' %}">
+                <img src="{% static 'core/images/netflix-logo-0.png' %}" alt="">
+
+              </a>
+              <div class="mini-menu">
+                <a class="btn" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                  <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.177 31.177" style="enable-background:new 0 0 31.177 31.177;" xml:space="preserve" width="25px" height="25px">
+                    <g>
+                        <g>
+                            <path class="menubar" d="M30.23,1.775H0.946c-0.489,0-0.887-0.398-0.887-0.888S0.457,0,0.946,0H30.23    c0.49,0,0.888,0.398,0.888,0.888S30.72,1.775,30.23,1.775z" fill="red"></path>
+                        </g>
+                        <g>
+                            <path class="menubar" d="M30.23,9.126H12.069c-0.49,0-0.888-0.398-0.888-0.888c0-0.49,0.398-0.888,0.888-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,8.729,30.72,9.126,30.23,9.126z" fill="red"></path>
+                        </g>
+                        <g>
+                            <path class="menubar" d="M30.23,16.477H0.946c-0.489,0-0.887-0.398-0.887-0.888c0-0.49,0.398-0.888,0.887-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,16.079,30.72,16.477,30.23,16.477z" fill="red"></path>
+                        </g>
+                        <g>
+                            <path class="menubar" d="M30.23,23.826H12.069c-0.49,0-0.888-0.396-0.888-0.887c0-0.49,0.398-0.888,0.888-0.888H30.23    c0.49,0,0.888,0.397,0.888,0.888C31.118,23.43,30.72,23.826,30.23,23.826z" fill="red"></path>
+                        </g>
+                        <g>
+                            <path class="menubar" d="M30.23,31.177H0.946c-0.489,0-0.887-0.396-0.887-0.887c0-0.49,0.398-0.888,0.887-0.888H30.23    c0.49,0,0.888,0.398,0.888,0.888C31.118,30.78,30.72,31.177,30.23,31.177z" fill="red"></path>
+                        </g>
+                    </g>
+                </svg></span>
+                </a>
+                <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-light" id="offcanvasExampleLabel"><a href="#"><img src="{% static './images/netflix-logo-0.png' %}" alt=""></a></h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                  </div>
+                  <div class="offcanvas-body">
+                    <hr class="bg-light">
+                    <div class="text-light">
+                      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+                    </div>
+                    <hr class="bg-light">
+
+                    <ul class="offcanvas-text">
+                    <hr class="bg-light">
+
+                      <li class="nav-link"><a href="{% url "core:signup" %}">Sign Up</a> </li>
+
+                    <hr class="bg-light">
+                      
+
+                    </ul>  
+
+                    <ul class="offcanvas-text">
+                      <li class="nav-lin"><a href="#">Search</a> <span class="float-end mb-2 bi bi-envelop"></span></li>
+                      <hr class="bg-light">
+
+                          <form class="d-flex" role="search" >
+                            <input class="form-control me-2 py-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-danger" type="submit">Search</button>
+                          </form>
+                       
+
+                    </ul>  
+                  </div>
+                </div>
+              </div>
+
+              <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav text-light mx-auto">
+
+                  <form method="POST" action="{% url 'core:search' %}" class="d-flex">
+                    {% csrf_token %}
+
+                    <input class="form-control me-2" name="search_term" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                  </form>
+
+                  <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="{% url 'core:index' %}">Home</a>
+                  </li>
+                  
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Genres
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/genre/action">Action</a></li>
+                      <li><a class="dropdown-item" href="/genre/comedy/">Comedy</a></li>
+                      <li><a class="dropdown-item" href="/genre/drama/">Drama</a></li>
+                      <li><a class="dropdown-item" href="/genre/horror/">Horror</a></li>
+                      <li><a class="dropdown-item" href="/genre/romance/">Romance</a></li>
+                      <li><a class="dropdown-item" href="/genre/sciencefiction/">Science Fiction</a></li>
+                      <li><a class="dropdown-item" href="/genre/fantasy/">Fantasy</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link text-light" href="#">My List</a>
+                  </li>
+
+                  
+                </ul>
+
+
+                
+                  {% if request.user.is_authenticated %}
+                  <div class="signup">
+                    <a href="{% url "core:logout" %}" class=" navbar-nav ms-auto btn btn-sm rounded-2 py-1 ps-3 pe-3 text-light fw-bold">
+                      Logout
+                    </a>
+                    </div>
+                  {% else %}
+                  <div class="signup">
+                    <a href="{% url 'core:login' %}" class=" navbar-nav ms-auto btn btn-sm rounded-2 py-1 ps-3 pe-3 text-light fw-bold">
+                      Sign in
+                    </a>
+                    </div>
+                  {% endif %}
+
+                  <div class="ms-2">
+                    <div class="dropdown name-icon">
+                      <a href="" class="dropdown rounded-circle " role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ user.username|slice:"2"|title }} 
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                        </svg> Profile</a></li>
+                        <li><a class="dropdown-item" href="#">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
+                            <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z"/>
+                          </svg> Movie List</a></li>
+                        
+                      </ul>
+                    </div>
+                    </div>
+              </div>
+            </div>
+          </nav>
+      </div>
+      
+    </div>
+
+    <div class="section2">
+      <div class="container">
+        <h1> <b> Unlimited movies, TV shows, and more. </b> </h1>
+        <h4 class="text-light text-center">Watch anywhere. Cancel anytime.</h4>
+        <p>Ready to watch? Enter your email to create or restart your membership.</p>
+        <form class="d-flex ">
+          <div class="form-floating mb-3 d-flex ">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+            <label for="floatingInput">Email address</label>
+
+            <button class="btn btn-md ms-2" type="submit">Get Started
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+              </svg> -->
+            </button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  
+
+  </div>
+
+  <!-- Movies Section -->
+
+  
+  <div class="row container-fluid mx-auto ms-0 me-0 my-5">
+
+    <div class="first-movie-section">
+      <h3>Popular on Netflix</h3>
+    </div>
+
+    {% for movie in movies reversed %}
+    <div class="col-xl-2 col-md-3 col-sm-12 my-3 jumbo-one">
+      <div class="jumbotron">
+        <div class="">
+        <img src="{{movie.image_card.url}}" alt="">
+        </div>
+        <div class="hamburger" id="hamburger">
+          <!-- Trigger for modal -->
+          <a href="#{{movie.pk}}" data-bs-toggle="modal" data-bs-target="#exampleModal-{{movie.pk}}">
+          <img src="{% static 'core/images/netflix.png' %}" alt="">
+          </a>
+        </div>
+        <a href="{% url 'core:movie' movie.uu_id %}">View Details</a>
+
+        <div class="jumbo-details" id="jumbo-details">
+          <h5>Apocalypto</h5>
+          <p>
+            <!-- It can take just 20 wordings -->
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam repellendus cum at aspernatur aut recusandae, excepturi inventore animi nobis non! ...
+          </p>
+          <a href="#">View Details</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal -->
+      <div class="modal fade" id="exampleModal-{{movie.pk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-scrollable modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title fs-5" id="exampleModalLabel">{{movie.title}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="movie-image_cover">
+                <img src="{{movie.image_cover.url}}" class="img-fluid w-100" alt="">
+              </div>
+
+              <div class="my-3"> 
+                <div class="">
+                  <span class="text-dark my-2"><b>Year:</b> {{movie.release_date|naturalday}}</span>
+                  <blockquote class="py-2"><b>Description:</b> {{movie.description|truncatechars:100}}</blockquote>
+                </div>
+                <div class="float-end">
+                  <small class="text-dark"><b>Length:</b> {{movie.length}} </small>
+                </div>
+              </div>
+              
+
+              <div class="">
+                <a href="{% url 'core:movie' movie.uu_id %}" class="btn btn-md bg-danger"> Play</a>
+                <a href="{% url 'core:add_to_list' %}" class="btn btn-md btn-outline-dark addToList" id="addToListButton" onclick="addItemToList()"> Add to List</a>
+              </div>
+
+              <!-- <div class="more-movies">
+                <h5 class="my-2 mt-3">More Like This:</h5>
+
+                <div class="row">
+                  <div class="col-xl-3 col-md-4 col-sm-12 my-3 jumbo-one">
+                    <div class="jumbotron" style="width:100%; ">
+                      <div class="">
+                      <img src="{{movie.image_card.url}}" class="img-fluid w-100" alt="">
+                      </div>
+                      
+                      
+                      <a href="./detail-page.html">View Details</a>
+              
+                      <div class="jumbo-details" id="jumbo-details">
+                        <h5>Apocalypto</h5>
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam repellendus cum at aspernatur aut recusandae, excepturi inventore animi nobis non! ...
+                        </p>
+                        <a href="#">View Details</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-4 col-sm-12 my-3 jumbo-one">
+                    <div class="jumbotron" style="width:100%;">
+                      <div class="">
+                      <img src="{{movie.image_card.url}}" class="img-fluid w-100" alt="">
+                      </div>
+                      
+                      
+                      <a href="./detail-page.html">View Details</a>
+              
+                      <div class="jumbo-details" id="jumbo-details">
+                        <h5>Apocalypto</h5>
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam repellendus cum at aspernatur aut recusandae, excepturi inventore animi nobis non! ...
+                        </p>
+                        <a href="#">View Details</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-4 col-sm-12 my-3 jumbo-one">
+                    <div class="jumbotron" style="width:100%;">
+                      <div class="">
+                      <img src="{{movie.image_card.url}}" class="img-fluid w-100" alt="">
+                      </div>
+                      
+                      
+                      <a href="./detail-page.html">View Details</a>
+              
+                      <div class="jumbo-details" id="jumbo-details">
+                        <h5>Apocalypto</h5>
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam repellendus cum at aspernatur aut recusandae, excepturi inventore animi nobis non! ...
+                        </p>
+                        <a href="#">View Details</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-3 col-md-4 col-sm-12 my-3 jumbo-one">
+                    <div class="jumbotron" style="width:100%;">
+                      <div class="">
+                      <img src="{{movie.image_card.url}}" class="img-fluid w-100" alt="">
+                      </div>
+                      
+                      
+                      <a href="./detail-page.html">View Details</a>
+              
+                      <div class="jumbo-details" id="jumbo-details">
+                        <h5>Apocalypto</h5>
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam repellendus cum at aspernatur aut recusandae, excepturi inventore animi nobis non! ...
+                        </p>
+                        <a href="#">View Details</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div> -->
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+
+  </div>
+
+
+
+
+  <!-- Accordion -->
+  <div class="Accordion-section">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <h2>Frequently Asked Questions</h2>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            What is Netflix?
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.
+
+            You can watch as much as you want, whenever you want without a single commercial – all for one low monthly price. There's always something new to discover and new TV shows and movies are added every week!</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            What is the cost?
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₦1,200 to ₦4,400 a month. No extra costs, no contracts.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            Where can i watch?
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.
+
+            You can also download your favorite shows with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere.</div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+            What can i watch?
+          </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.</div>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+            What payment is accepted?
+          </button>
+        </h2>
+        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- News Letter -->
+  <div class="newsletter-section">
+  <h4 class="text-center text-uppercase fw-bold">Newsletter</h4>
+  <p class="text-dark">Ready to watch? Enter your email to create or restart your membership.</p>
+  <div class="newsletter">
+    <form class="">
+      <div class="form-floating mb-3 d-flex ">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+        <label for="floatingInput">Email address</label>
+
+        <button class="btn btn-md ms-2" type="submit">Get Started
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </button>
+      </div>
+      
+    </form>
+  </div>
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="first-line">
+      <img src="{% static 'core/images/netflix-logo-0.png' %}" alt="">
+      <p>Bringing Joy to people</p>
+    </div>
+
+    <div class="socials">
+      <div class="home-menu">
+        <p><a href="#">FAQ</a></p>
+        <p><a href="#">Investors relations</a></p>
+        <p><a href="#">Privacy</a></p>
+        <p><a href="#">Speed Test</a></p>
+        <select name="" id="" class="form-select">
+          <option value="English">English</option>
+        </select>
+        <p class="pt-4">Netflix Nigeria</p>
+
+      </div>
+
+      <div class="images-section">
+        <p><a href="#">Help center</a></p>
+        <p><a href="#">Jobs</a></p>
+        <p><a href="#">Cookie preferences</a></p>
+        <p><a href="#">Legal Notice</a></p>
+      </div>
+      <div class="return-section">
+        <p><a href="#">Account</a></p>
+        <p><a href="#">Ways to watch</a></p>
+        <p><a href="#">Cooperate information</a></p>
+        <p><a href="#">Only on Netflix</a></p>
+      </div>
+
+      <div class="social-media-icon">
+        <p><a href="#">Media center</a></p>
+        <p><a href="#">Terms of use</a></p>
+        <p><a href="#">Contact us</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+
+</main>
+
+
+<script>
+
+
+//Add item to list
+ 
+function addItemToList(){
+      const modal = document.getElementById('exampleModal');
+      var movieID = modal.querySelector('.modal-content .addToList').href;
+
+
+      $.ajax({
+        url: "{% url 'core:add_to_list' %}",
+        type: "POST",
+        data: {
+          movie_id: movieID,
+          csrfmiddlewaretoken: "{{csrf_token}}"
+        },
+
+        success: function(data){
+          $('#addToListButton').text(data.message);
+
+          $('#addToListButton').prop('disabled', true);
+
+          console.log("Item added to List");
+        },
+
+        error: function(xhr, errmsg, err){
+          console.error("Error adding item to List: " + errmsg)
+        }
+
+      });
+}
+
+</script>
+<script src="{% static 'core/js/script.js' %}"></script>
+<script src="{% static 'core/bs/bootstrap.bundle.js' %}"></script>
+</body>
+
+</html>

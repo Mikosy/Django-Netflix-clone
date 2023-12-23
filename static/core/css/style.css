@@ -1,0 +1,523 @@
+*{
+    font-family: poppins;
+}
+.navbar-brand img{
+    width:auto;
+    height:42px;
+}
+#nav-bar{
+    padding-top:3%;
+    
+}
+.mini-menu{
+    display:none;
+}
+.navbar-nav button a{
+    text-decoration: none;
+    color:white;
+}
+.image{
+    background-image: linear-gradient(to top, transparent 10%, black 100%), url(../images/netflix-background-128505-385441-537479.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position-x: center;
+    background-position-y: center; */
+    height:100vh;
+}
+.navbar-nav button{
+    background-color: rgb(255, 0, 0);
+    color:white;
+    font-weight: 500;
+}
+.navbar-nav button:hover{
+    color: white;
+}
+
+.signup ul li{
+    list-style: none;
+}
+.signup a{
+    text-decoration: none;
+    background-color: red;
+}
+.signup a:hover{
+    background-color: rgb(197, 0, 0);
+}
+.name-icon{
+    height:30px;
+    width:30px;
+    padding: 10px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.name-icon a{
+    font-weight: 400;
+    color: #222;
+}
+.section2{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:90vh;
+
+}
+.section2 h1{
+    color:white;
+    font-family: roboto;
+    font-size: 50px;
+    /* margin-top: 12%; */
+    font-weight: bolder;
+    text-align: center;
+
+}
+.section2 h4, p{
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    margin: 20px 0;
+}
+.section2 form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section2 input{
+    width: 450px;
+    background-color: transparent;
+}
+.section2 form label{
+    color: silver;
+}
+.section2 button{
+    width: 50%;
+    font-weight: 600;
+    font-size: 1.5rem;
+    background-color: red;
+    color: #fff;
+}
+.section button:hover{
+    background-color: rgb(197, 0, 0);
+    color: #fff;
+}
+.Accordion-section{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 12%;
+    margin-right: 12%;
+
+}
+.Accordion-section h2{
+    font-weight: 700;
+    text-align: center;
+    color: red;
+}
+.accordion-header{
+    margin: 10px 0;
+    padding: 10px;
+    height: 70px;
+}
+.accordion-header button{
+    background: transparent;
+    font-size: 18px;
+    color: #222;
+    font-weight: bold;
+}
+.accordion-header button:hover{
+    color: #222;
+}
+.accordion-button.collapsed::after {
+
+    background: url("../images/plus.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+.accordion-button::before {
+    content: '*'; 
+    color: red;
+  }
+.first-movie-section h3::before{
+    content: '| ';
+    font-weight: 600;
+    color: red;
+}
+.first-movie-section h3{
+    font-weight: bold;
+}
+.jumbotron{
+    background-color: #222;
+    height: 325px;
+    width: auto;
+    position: relative;
+}
+.jumbotron img{
+    height: 325px;
+    width: 100%;
+    object-fit: cover;
+}
+.jumbotron .hamburger{
+    height: 30px;
+    width: 30px;
+    background: #ffe;
+    opacity: .9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 1px;
+    margin: 5px;
+    cursor: pointer;
+
+}
+.jumbotron .hamburger img{
+    height: 18px;
+    width: 18px;
+}
+.jumbo-details{
+    display: none; 
+    position: absolute;
+    top: 0;
+    bottom: 15px;
+    width: 69%;
+    height: 100%;
+    /* background-color: #d7d7d7; */
+    background-color: #e8e8e8;
+    /* background-color: #fff; */
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    /* border-right: 3px solid #222; */
+    transition: .9s;
+    animation: jumboanimate .3s;
+}
+@keyframes jumboanimate{
+    from 0%{
+        transform: rotateX('30');
+    }
+    to 100%{
+        transform: rotateY('270');
+    }
+}
+.jumbo-details h5{
+    font-size: 18px;
+    padding: 10px;
+    font-weight: bolder;
+    text-decoration: underline;
+    color: #222;
+}
+.jumbo-details a{
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+    color: #222;
+}
+.jumbo-details p{
+    font-size: 12px;
+    padding: 10px;
+    text-align:left;
+    color: #222;
+    font-style: italic;
+}
+.newsletter-section h4{
+    color: red;
+}
+.newsletter{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.newsletter input{
+    width: 450px;
+    background-color: transparent;
+}
+.newsletter form label{
+    color: silver;
+}
+.newsletter button{
+    width: 50%;
+    font-weight: 600;
+    font-size: 1.5rem;
+    background-color: red;
+    color: #fff;
+}
+.section button:hover{
+    background-color: rgb(197, 0, 0);
+    color: #fff;
+}
+footer {
+    padding-left: 11%;
+    padding-right: 11%;
+    height: 400px;
+    width: 100%;
+    /* background: linear-gradient(to left, transparent, #222); */
+    background-color: #222;
+}
+footer .first-line{
+    padding-top: 4%;
+}
+footer .first-line img{
+    height: 40px;
+}
+footer .first-line p{
+    text-align:start ;
+    font-size: 12px;
+    color: #ffe;
+}
+footer .socials{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+}
+footer .socials p{
+    text-align:start ;
+    font-size: 12px;
+}
+footer .socials p a{
+    color: #ffe;
+}
+footer .socials select{
+    background-color: transparent;
+    color: #ffe;
+    margin: 10px 0;
+}
+
+
+
+
+/* Detail Page Section */
+.details-body{
+    background-color: #222;
+}
+.detail-section{
+ /* background-image: linear-gradient(to left, transparent -100%, black 100%), url(../images/Posters/kingdom.jpg);
+ background-size:cover;
+ background-position: center;
+ background-repeat: no-repeat; */
+ height:100vh;
+ display: flex;
+}
+.details{
+    margin: auto;
+    margin-left: 6rem;
+    /* background: #fff; */
+    width: 30%;
+
+}
+.details .detail-title h2{
+    font-weight: bolder;
+    font-size: 4rem;
+    color: #ffe;
+}
+.details .remaining-details p{
+    text-align: left;
+    font-size: .9rem;
+}
+
+
+.detail-section-two{
+    width: 100%;
+}
+.detail-section-two-card{
+    display: inline-flex;
+    align-items: center;
+    height: 50px;
+    background-color: #ffffff;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+.video-section{
+    /* background-image: url(../images/Posters/kingdom.jpg);
+    background-repeat: no-repeat;
+    background-size: cover; */
+    height: 350px;
+    width: 350px;
+    margin-top: 20px;
+    /* border-radius: 20px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+.video-section svg{
+    height: 50px;
+    width: 50px;
+}
+.detail-nav{
+    width: 100%;
+    padding: 10px;
+    opacity: .9;
+    position: fixed;
+    background-color: #222;
+}
+.detail-section-four h6{
+    color: rgb(255, 255, 255);
+}
+.detail-section-four p{
+    text-align: left;
+    font-size: 13px;
+    color: rgb(101, 101, 101);
+}
+.detail-section-three-modal{
+    max-width: 100%;
+    height: 300px;
+}
+.detail-section-three video{
+    height: 600px;
+    width: 100%;
+    margin: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:990px){
+    .section form input{
+        width: 100%;
+        height:60px;
+        font-size: small;
+        font-style: italic;
+    }
+    
+    .mini-menu{
+        display:block;
+    }
+    .mini-menu .offcanvas{
+        width:80%;
+        /* background: linear-gradient(transparent 0%, black 100%); */
+
+    }
+    .mini-menu li a{
+        text-decoration:none ;
+        color:white;
+    }
+    .mini-menu span img{
+        width: 100%;
+        height:40px;
+        /* background-color: #fff; */
+        padding: 10px;
+    }
+
+    .offcanvas-title img{
+        width:auto;
+        height:42px;
+    }
+    .section form button{
+        padding: 0 10px;
+        width: 50%;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .section2 h1{
+        color:red;
+        font-family: roboto;
+        font-size: 35px;
+        margin-top: 15%;
+    }
+    .section2 h4, p{
+        font-size: 13px;
+    }
+    .newsletter-section{
+        display: none;
+    }
+    footer {
+        padding-left: 11%;
+        padding-right: 11%;
+        height: auto;
+        width: 100%;
+        /* background: linear-gradient(to left, transparent, #222); */
+        background-color: #222;
+    }
+    footer .socials{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+    }
+
+    /* details */
+    .details{
+        margin: auto;
+        margin-left: 1rem;
+        /* background: #fff; */
+        width:100%;
+    
+    }
+    .detail-section{
+        background-image: linear-gradient(to left, transparent -100%, black 100%), url(../images/Posters/kingdom.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;
+        height:100vh;
+       }
+       .details .detail-title h2{
+        font-size: 3rem;
+    }
+    .details .remaining-details p{
+        text-align: left;
+        font-size: .7rem;
+    }
+    
+    
+    .detail-section-two{
+        width: 100%;
+    }
+    .detail-section-two-card{
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+    .video-section{
+        height: 350px;
+        width: 100%;
+    }
+}

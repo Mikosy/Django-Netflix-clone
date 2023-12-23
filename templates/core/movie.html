@@ -1,0 +1,155 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix | detail page</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/bs/bootstrap.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'core/images/netflix.png' %}">
+</head>
+<body class="details-body">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'core:index' %}">
+                <img src="{% static 'core/images/netflix-logo-0.png' %}" alt="">
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+        
+    <section class="detail-main">
+        
+        <section class="detail-section" style="background-image: linear-gradient(to left, transparent -100%, black 100%), url('{{movie_details.image_cover.url}}');
+        background-size:cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        ">
+            <div class="details">
+                <div class="detail-image">
+                <img src="{% static './images/netflix.png' %}" alt=""> <span class="fw-bold text-light">F I L M</span> 
+                </div>
+                <div class="detail-title">
+                    <h2><b>{{movie_details.title}}</b></h2>
+                </div>
+                <div class="remaining-details">
+                    <p class="mt-1">{{movie_details.title}}</p>
+                    <P class="">{{movie_details.release_date|naturalday}} | <span class="rounded-1 btn btn-sm text-danger btn-outline-light">{{movie_details.parental_rating}}+</span> | {{movie_details.length}} hr(s) | {{movie_details.genre}}</P>
+                    <p class="">{{movie_details.description}}</p>
+                    <p>
+                        <span class="text-danger">Starring:</span>
+                    </p>
+                </div>
+            </div>
+            
+        </section>
+
+        <section class="detail-section-two container my-4">
+            <div class="detail-section-two-card">
+                <div class="detail-section-two-logo">
+                    <img src="{% static 'core/images/netflix.png' %}" alt=""> <span class="fw-bold text-dark">Watch all you want.</span> 
+                </div>
+                {% if user.is_authenticated %}
+
+                {% else %}
+                <div class="detail-section-two-button">
+                    <a href="./register.html" class="btn btn-sm btn-danger"> JOIN NOW</a>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <section class="detail-section-three container my-3 text-light">
+            <h3>Videos | <span class="text-danger">{{movie_details.title}}</span> </h3>
+
+            <div>
+                <video class="video-section" controls>
+                    <source src="{{movie_details.video.url}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section class="detail-section-four container">
+            <h5 class="text-light py-3">More Details</h5>
+
+            <div class="row">
+                <div class="col-xl-3 col-md-3 col-sm-12">
+                    <h6 class="text-light">Watch offline</h6>
+                    <P class="mb-0">Download and watch everywhere you go.</P>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-12">
+                    <h6 class="text-light">Genres</h6>
+                    <P class="mb-0">Nollywood, Crime Movies, Action & Adventure Movies, African Movies</P>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-12">
+                    <h6 class="text-light">Audio</h6>
+                    <p class="mb-0">English - Audio Description, English [Original]</p>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-12">
+                    <h6 class=" text-light">Subtitle</h6>
+                    <p class="mb-0">Arabic, English</p>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xl-3 col-md-3 col-sm-12">
+                    <h6 class="">Cast</h6>
+                    <P class="mb-0">Richard Mofe-Damijo</P>
+                    <p class="mb-0">Olumide Oworu</p>
+                    <pmclass="mb-0">Taiwo Ajai-Lycett</pmclass=>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-12">
+                    <P class="mb-0">Ade Laoye</P>
+                    <P class="mb-0">Kelechi Udegbe</P>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-12">
+                    <p class="mb-0">Sam Dede</p>
+                    <p class="mb-0">Shaffy Bello</p>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-12">
+                    <p class="mb-0">Alex Usifo Omiagbo</p>
+                    <p class="mb-0">Iretiola Doyle</p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+
+  <!-- Modal -->
+  <div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " >
+      <div class="modal-content detail-section-three-modal"  role="document" >
+        <div class="modal-header">
+            <div class="first-movie-section">
+                <h5><span class="fw-bold text-danger">|</span>  Trailer: <span class="text-danger">Kingdom</span> </h5>
+              </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body  mx-auto bg-dark">
+            <iframe class="img-fluid" width="469" height="315" src="https://www.youtube.com/embed/6ay4dt931bk?si=cMHZSrR1A48hpL75" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="{% static 'core/bs/bootstrap.bundle.js' %}"></script>
+</body>
+</html>

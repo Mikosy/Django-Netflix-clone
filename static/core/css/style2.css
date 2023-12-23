@@ -1,0 +1,174 @@
+*{
+    font-family: poppins;
+    font-weight: bold;
+}
+
+.navbar-brand img{
+    width:auto;
+    height:55px;
+}
+#nav-bar{
+    padding-top:1%;
+    
+}
+.image{
+    background-image: linear-gradient(to top, transparent 0%, black 100%), url(../images/netflix-background-128505-385441-537479.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:120vh;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.section2{
+    margin:0% 33%;
+    display:flex;
+    height:100vh;
+    justify-content: center;
+    align-items: center;
+    /* background: linear-gradient(135deg, #89f7fe, #66a6ff); */
+}
+.section2 .container{
+    /* box-shadow: 4px white; */
+    padding:0% 10%;
+    background: linear-gradient(transparent 0%, black 100%);
+    padding: 30px 40px;
+    border-radius: 5px;
+    height:100%;
+}
+
+.container .title{
+    font-size: 35px;
+    font-weight: 700;
+    position: relative;
+
+}
+.container .title::before{
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 50px;
+    background: red;
+    left:0;
+    bottom: 0;
+}
+.container form .user-details{
+    flex-wrap: wrap;
+    margin: 20px 0 12px 0;
+
+}
+form .user-details .input-box{
+    width: calc(100 / 2 - 20px);
+    margin-bottom: 15px;
+} 
+.user-details .input-box .details{
+    display:block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+::placeholder{
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+}
+.user-details .input-box input{
+    height:60px;
+    width:100%;
+    outline:none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-top-width:0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 3px;
+    transition: all 0.3s ease;
+    background-color: rgb(27, 26, 26);
+    color: white;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: red;
+}
+
+form .button{
+    height: 45px;
+    /* margin:40px 0; */
+}
+form .button input{
+    height: 100%;
+    width:100%;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background-color: red;
+
+}
+form .button input:hover{
+    background: red;
+
+    color: #fff;
+}
+form .small{
+    margin-top:19px;
+    font-size: 15px;
+
+}
+form .small a{
+    text-decoration: underline;
+    font-size: 15px;
+}
+.check-box input[type=checkbox]{
+    height:20px;
+    width:20px;
+    padding:20px 0px;
+    background: grey;
+}
+.check-box .span1{
+    color:white;
+}
+.check-box .span2{
+    font-size:15px;
+}
+
+@media screen and (max-width:990px){
+    .container{
+        max-width: 100%;
+    }
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .container form .user-details{
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar{
+        width:0;
+    }
+    .section2{
+        margin:0% 7%;
+        display:flex;
+        height:105vh;
+        justify-content: center;
+        align-items: center;
+        /* background: linear-gradient(135deg, #89f7fe, #66a6ff); */
+    }
+    .section2 .container{
+        /* box-shadow: 4px white; */
+        padding:0% 7%;
+        background: linear-gradient(transparent 0%, black 100%);
+        padding: 20px 20px;
+        border-radius: 5px;
+        height:100%;
+    }
+    
+}         

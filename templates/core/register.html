@@ -1,0 +1,109 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/css/style2.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'core/images/netflix.png' %}">
+    <link rel="stylesheet" href="{% static 'core/bs/bootstrap.css' %}">
+    <title>Netflix | SignUp</title>
+</head>
+<body>
+    
+    <div class="section">
+        <div class="image ">
+    
+          <div class="mx-5">
+            <nav class="navbar navbar-expand-lg navbar-light" id="nav-bar">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="{% url 'core:index' %}">
+                      <img src="{% static 'core/images/netflix-logo-0.png' %}" alt="">
+                  </a>
+                  
+                </div>
+              </nav>
+        
+        </div>
+    
+        <section>
+            <div class="section2 ">
+                <div class="container">
+                    <div class="title text-light">Sign Up</div>
+
+                    <div class="text-center text-light col-md-4 col-sm-12 my-3">
+                        {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags == 'error' %}alert-danger{% elif message.tags == 'success' %}alert-success{% endif %} alert-dismissible fade show"  role="alert">
+                                {{ message }}
+                              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                        {% endif %}
+                      </div>
+                    <form method="POST" action="" autocomplete="off" spellcheck="true">
+                        {% csrf_token %}
+                    
+                        <div class="user-details">
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="input-box mt-3">
+                                        <span class="details text-light"> Name </span>
+                                        <input type="text" name="name" placeholder="your name..." required >
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="input-box mt-3">
+                                        <span class="details text-light"> Username </span>
+                                        <input type="text" name="username" placeholder="your username...">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-box mt-2">
+                                <span class="details text-light"> Email </span>
+                                <input type="text" name="email"  placeholder="your email..." required>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="input-box mt-2">
+                                        <span class="details text-light"> Password </span>
+                                        <input type="password" name="password" placeholder="Password" required >
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="input-box mt-2">
+                                        <span class="details text-light"> Confirm Password </span>
+                                        <input type="password" name="password2" placeholder="Password" required >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button mt-3 text-center">
+                            <input type="submit" value="Signup">
+                        </div>
+                        <div class="form-group check-box mt-2 d-flex gap-1">
+                            <input type="checkbox" name="checkbox" class="form-check">
+                            <span class="span1">Remember me</span>  <span class="text-light ms-auto span2"> Need help?</span>
+                        </div>
+                        <div class="small">
+                            <p class="text-light pt-4">Already have an account? <a href="{% url "core:login" %}" class="text-light"> Sign in.</a></p>
+                            <p class="text-light">This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn more.</a></p>
+                        </div>
+                    </form>
+                
+                    
+                    
+                </div>
+                
+            </div>
+        </section>
+
+
+    </div>
+
+
+</body>
+<script src="{% static 'core/bs/bootstrap.bundle.js' %}"></script>
+</html>
